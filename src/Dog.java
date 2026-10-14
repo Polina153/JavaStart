@@ -1,4 +1,4 @@
-class Dog extends Animal implements Swimmable {
+class Dog extends Animal implements Swimmable, Runnable {
     public Dog(String name, int age, int legs, boolean tail) {
         super(name, age, legs, tail);
     }
@@ -11,5 +11,10 @@ class Dog extends Animal implements Swimmable {
     @Override
     public void swim() {
         System.out.println(name + " is swimming");
+    }
+
+    @Override
+    public boolean canRun() {
+        return true;
     }
 }

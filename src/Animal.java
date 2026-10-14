@@ -11,7 +11,7 @@ abstract class Animal {
         this.tail = tail;
     }
 
-    void printInfo(){
+    final void printInfo(){
         System.out.printf("This %s is %s years old and has %s legs and tail is %s. \n", name, age, legs, tail);
     }
 
