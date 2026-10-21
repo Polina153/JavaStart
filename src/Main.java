@@ -1,77 +1,47 @@
 public class Main {
 
-    //Задача:
-    //Даны классы Apple и Orange;
-
-    //Класс Basket, в который можно складывать фрукты. Корзины условно сортируются по типу фрукта, поэтому в одну корзину
-    //нельзя сложить и яблоки, и апельсины. Есть возможность создавать смешанные корзины, куда можно складывать любые фрукты;
-
-    //Для хранения фруктов внутри корзины можно использовать ArrayList;
-
-    //Сделать метод getWeight(), который высчитывает вес коробки, зная вес одного фрукта и их количество:
-    // вес яблока – 1.0, апельсина – 1.5;
-
-    //Внутри класса Basket сделать методы:
-    //  - add() для добавления фруктов
-    //  - compare(), который позволяет сравнить текущую корзину с той, которую подадут в compare() в качестве параметра.
-    // Можно сравнивать корзины с разными фруктами;
-
-    // * Написать метод, который позволяет пересыпать фрукты из текущей корзины в другую.
-    // Помним про сортировку фруктов: нельзя яблоки высыпать в корзину для апельсинов, только в корзину для яблок или же смешанную.
-    // Соответственно, в текущей корзине фруктов не остается, а в другую перекидываются объекты, которые были в первой;
-
     public static void main(String[] args) {
 
-        //Exception Example:
-        int a, b;
-        try {
-            a = 0;
-            b = 10 / a;
-            System.out.println("Это сообщение не будет выведено в консоль");
-        } catch (ArithmeticException e) {
-            System.out.println("Деление на ноль");
-        } catch (Exception e) {
-            System.out.println("Some exception");
-        } finally {
-            System.out.println("Завершение работы");
+        /*DaysOfWeek today = DaysOfWeek.WEDNESDAY;
+        System.out.println("Сегодня: " + today);
+
+        if (today.isWeekend()) {
+            System.out.println("Сегодня выходной!");
+        } else {
+            System.out.println("Сегодня рабочий день.");
         }
 
-        /*Basket<Orange> orangeBasket = new Basket<>();
-        orangeBasket.add(new Orange());
-        orangeBasket.add(new Orange());
-        orangeBasket.add(new Orange());
-        System.out.println("Orange basket weight is: " + orangeBasket.getBasketWeight());
+        DaysOfWeek tomorrow = today.nextDay();
+        System.out.println("Завтра: " + tomorrow);
+        System.out.println();
+        for (DaysOfWeek day : DaysOfWeek.values()) {
+            System.out.println("День: " + day);
+        }*/
 
-        Basket<Apple> appleBasket = new Basket<>();
-        appleBasket.add(new Apple());
-        System.out.println("Apple basket weight is: " + appleBasket.getBasketWeight());
+        /*String s = "cat";
+        String ss = "cat";
+        System.out.println(s == ss); // true
+        s = "dog";
+        System.out.println(ss);
+        System.out.println(s == ss); // false
 
-        Basket<Fruit> fruitBasket = new Basket<>();
-        fruitBasket.add(new Orange());
-        fruitBasket.add(new Apple());
-        System.out.println("Fruit basket weight is: " + fruitBasket.getBasketWeight());
+        String s1 = "hello";
+        String s2 = " world";
+        String s3 = "hello world";
+        String s4 = s1 + s2; // Конкатенация в runtime создает НОВЫЙ объект в куче
+        String s5 = "hello" + " world"; // Конкатенация констант оптимизируется компилятором
 
+        System.out.println(s3 == s4); // false! s4 - новый объект
+        System.out.println(s3 == s5); // true! Компилятор сделал их одной константой*/
 
-        System.out.println(orangeBasket.compare(appleBasket));
-        System.out.println(appleBasket.compare(appleBasket));
-        System.out.println(appleBasket.compare(orangeBasket));
-
-        Basket<Orange> orangeBasket2 = new Basket<>();
-        orangeBasket2.add(new Orange());
-
-        System.out.println("First case");
-        Basket.transfer(orangeBasket, orangeBasket2);
-        System.out.println("Orange basket2 weight is: " + orangeBasket2.getBasketWeight());
-        System.out.println("Orange basket weight is: " + orangeBasket.getBasketWeight());
-
-        System.out.println("Second case");
-        //Basket.transfer(appleBasket, orangeBasket2);
-        System.out.println("Orange basket2 weight is: " + orangeBasket2.getBasketWeight());
-        System.out.println("Apple basket weight is: " + appleBasket.getBasketWeight());
-
-        System.out.println("Third case");
-        Basket.transfer(appleBasket, fruitBasket);
-        System.out.println("Fruit basket weight is: " + fruitBasket.getBasketWeight());
-        System.out.println("Apple basket weight is: " + appleBasket.getBasketWeight());*/
+        Cat cat = new Cat("Barsik", 15);
+        System.out.println("Cat has appetite: " + cat.getAppetite());
+        Plate plate = new Plate(20);
+        plate.info();
+        System.out.println("Cat is full: " + cat.isFull());
+        cat.eat(plate);
+        System.out.println("Cat is full: " + cat.isFull());
+        System.out.println("Cat has " + cat.getAppetite() + " appetite");
+        plate.info();
     }
 }
